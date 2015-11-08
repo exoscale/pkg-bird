@@ -1,3 +1,9 @@
+bird (1.4.0-1ubuntu0.14.04.1~precise0+exo1) precise; urgency=medium
+
+  * Backport to Precise.
+
+ -- Vincent Bernat <bernat@debian.org>  Sun, 08 Nov 2015 11:47:08 +0100
+
 bird (1.4.0-1ubuntu0.14.04.1) trusty; urgency=medium
 
   * Fixup misc issues with starting bird, cherry picked from Debian:
@@ -534,6 +540,4 @@ bird (1.0.0-1) unstable; urgency=low
 
  -- Florian Lohoff <flo@rfc822.org>  Wed, 14 Jun 2000 17:53:15 +0200
 
-Local variables:
-mode: debian-changelog
-End:
+
