@@ -1,0 +1,24 @@
+From 43eb8f610f7796375419dc8d72df7a41c01c82af Mon Sep 17 00:00:00 2001
+From: Ondrej Zajicek <santiago@crfreenet.org>
+Date: Mon, 31 Mar 2014 12:02:20 +0200
+Subject: [PATCH] Removes conflicting definition.
+
+---
+ client/birdc.c | 1 -
+ 1 file changed, 0 insertions(+), 1 deletion(-)
+
+diff --git a/client/birdc.c b/client/birdc.c
+index bbe1833..6d4c86a 100644
+--- a/client/birdc.c
++++ b/client/birdc.c
+@@ -29,7 +29,6 @@ static int prompt_active;
+ /* HACK: libreadline internals we need to access */
+ extern int _rl_vis_botlin;
+ extern void _rl_move_vert(int);
+-extern Function *rl_last_func;
+ 
+ static void
+ add_history_dedup(char *cmd)
+--
+libgit2 0.21.4
+

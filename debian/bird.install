@@ -1,0 +1,8 @@
+etc/bird/bird.conf
+usr/sbin/bird
+usr/sbin/birdc
+etc/bird/bird6.conf
+usr/sbin/bird6
+usr/sbin/birdc6
+etc/bird/envvars
+usr/lib/bird/prepare-environment

@@ -1,0 +1,62 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+DPKG_EXPORT_BUILDFLAGS = 1
+include /usr/share/dpkg/buildflags.mk
+
+COMMON_FLAGS= --prefix=/usr --sysconfdir=/etc/bird --mandir=\$${prefix}/share/man \
+	--infodir=\$${prefix}/share/info --localstatedir=/var --with-runtimedir=/run/bird \
+	--enable-client
+
+CFLAGS += -g -O2 -fno-strict-aliasing -fno-strict-overflow -fPIC
+LDFLAGS += -g -O2 -fno-strict-aliasing -fno-strict-overflow -fPIC -Wl,-z,defs -Wl,--as-needed
+
+%:
+	dh $@ --with autotools_dev
+
+override_dh_auto_configure:
+	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" dh_auto_configure -Bbuild-ipv4 -- $(COMMON_FLAGS) --disable-ipv6 --with-protocols=all
+	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" dh_auto_configure -Bbuild-ipv6 -- $(COMMON_FLAGS) --enable-ipv6 --with-protocols=all
+	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" dh_auto_configure -Bbuild-ipv4-bgp -- $(COMMON_FLAGS) --disable-ipv6 --with-protocols=bgp,pipe,static
+	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" dh_auto_configure -Bbuild-ipv6-bgp -- $(COMMON_FLAGS) --enable-ipv6 --with-protocols=bgp,pipe,static
+
+override_dh_auto_build:
+	dh_auto_build -Bbuild-ipv4
+	dh_auto_build -Bbuild-ipv6
+	dh_auto_build -Bbuild-ipv4-bgp
+	dh_auto_build -Bbuild-ipv6-bgp
+
+override_dh_auto_clean:
+	dh_auto_clean -Bbuild-ipv4
+	dh_auto_clean -Bbuild-ipv6
+	dh_auto_clean -Bbuild-ipv4-bgp
+	dh_auto_clean -Bbuild-ipv6-bgp
+
+override_dh_auto_install:
+	dh_auto_install -Bbuild-ipv4
+	dh_auto_install -Bbuild-ipv6
+	dh_auto_install -Bbuild-ipv4-bgp --destdir=debian/bgp
+	dh_auto_install -Bbuild-ipv6-bgp --destdir=debian/bgp
+
+override_dh_install:
+	for d in tmp bgp; do \
+	  install -d -m 755 debian/$$d/etc/bird; \
+	  install -m 644 debian/envvars debian/$$d/etc/bird/envvars; \
+	  install -d -m 755 debian/$$d/usr/lib/bird; \
+	  install -m 755 debian/prepare-environment debian/$$d/usr/lib/bird/prepare-environment; \
+	done
+	dh_install -pbird --sourcedir=debian/tmp
+	dh_install -pbird-bgp --sourcedir=debian/bgp
+
+override_dh_strip:
+	dh_strip -pbird --dbg-package=bird-dbg
+	dh_strip -pbird-bgp --dbg-package=bird-bgp-dbg
+
+override_dh_installinit:
+	dh_installinit --name=bird
+	dh_installinit --name=bird6
