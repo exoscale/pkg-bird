@@ -1,8 +1,17 @@
-bird (1.5.0-4build1) xenial; urgency=medium
+bird (1.6.0-1) unstable; urgency=medium
 
-  * No-change rebuild for ncurses6 transition.
+  * Imported Upstream version 1.6.0
+  * Update patches on top of 1.6.0 release
 
- -- Matthias Klose <doko@ubuntu.com>  Sun, 07 Feb 2016 09:39:34 +0000
+ -- Ondřej Surý <ondrej@debian.org>  Sat, 30 Apr 2016 21:16:16 +0200
+
+bird (1.5.0-5) unstable; urgency=medium
+
+  * Fix Vcs-Browser URL
+  * Fix typo in bird-doc package (Closes: #802029)
+  * Return the upstart scripts back for now
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 03 Mar 2016 19:22:27 +0100
 
 bird (1.5.0-4) unstable; urgency=medium
 
