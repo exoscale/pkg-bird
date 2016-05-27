@@ -1,14 +1,146 @@
-bird (1.4.0-1ubuntu0.14.04.1) trusty; urgency=medium
+bird (1.5.0-4build1) xenial; urgency=medium
 
-  * Fixup misc issues with starting bird, cherry picked from Debian:
-    - Enable default example router id because it's mandatory for IPv6
-      (LP: #1342173).
-    - Add 'exec' before bird execution in upstart jobs, ensuring that
-      bird processes are correctly tracked (LP: #1463808).
-  * d/p/fixup-ftbfs.patch: Cherry pick fix from upstream VCS, resolving
-    build failure due to conflicting definitions.
+  * No-change rebuild for ncurses6 transition.
 
- -- James Page <james.page@ubuntu.com>  Wed, 10 Jun 2015 13:10:51 +0100
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 07 Feb 2016 09:39:34 +0000
+
+bird (1.5.0-4) unstable; urgency=medium
+
+  * Fix foo->bird typo in postrm
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 14 May 2015 15:56:03 +0200
+
+bird (1.5.0-3) unstable; urgency=medium
+
+  * Use IPv4 router id in IPv6 example to unbreak default config
+  * Use UCF_FORCE_CONFFOLD to force ucf to always use user version of bird
+    conffile (Closes: 784852)
+  * Remove dpkg-maintscript-helper scripts also from bird.postinst
+  * Add old md5sum for bird.conf(s) to prevent dialogues when upgrading
+    from jessie and 1.5.0-1
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 14 May 2015 08:03:06 +0200
+
+bird (1.5.0-2) unstable; urgency=medium
+
+  * Fix extra bird.conf/ directory in /usr/share/bird/
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 12 May 2015 12:05:33 +0200
+
+bird (1.5.0-2~exp1) experimental; urgency=medium
+
+  * Add TEXINPUTS=.:tex: to latex invocation to fix documentation build
+  * Change conffile handling to use ucf (Closes: #731243)
+  * Cleanup bird-bgp and make it a transitional package
+  * Delete upstart scripts
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 12 May 2015 10:12:10 +0200
+
+bird (1.5.0-1) unstable; urgency=medium
+
+  * New upstream version 1.5.0
+   o Major OSPF protocol redesign.
+   o OSPFv2 multi-instance extension (RFC 6549).
+   o BGP AS-wide unique router ID (RFC 6286).
+   o BGP enhanced route refresh (RFC 7313).
+   o Link state support in BGP.
+   o Latency tracking and internal watchdog.
+   o Uses high port range for BFD on BSD.
+   o Increase max symbol length to 64.
+   o Allows to define unnamed protocols from templates.
+   o Fixes two serious bugs in BGP.
+   o Several bugfixes and minor improvements.
+   o Several minor option changes:
+     - OSPF: Protocol-wide 'instance id' option added.
+     - BGP: Parameters to option 'neighbor' extended.
+     - BGP: Separate option 'interface' added.
+     - BGP: Option 'start delay time' renamed to 'connect delay time'.
+     - BGP: Option 'route limit' deprecated.
+
+ -- Ondřej Surý <ondrej@debian.org>  Wed, 22 Apr 2015 20:41:30 +0200
+
+bird (1.4.5-1) unstable; urgency=medium
+
+  * New upstream version 1.4.5
+   o New 'show route noexport' command option.
+   o Port option for BGP sessions.
+   o Better constant handling in set literals.
+   o Better rate filtering of log messages.
+   o Several minor bugfixes.
+
+ -- Ondřej Surý <ondrej@debian.org>  Wed, 08 Oct 2014 10:22:54 +0200
+
+bird (1.4.4-2) unstable; urgency=medium
+
+  [ Frederik Kriewitz ]
+  * add missing $BIRD_ARGS to upstart scripts
+
+  [ Ondřej Surý ]
+  * Fix Vcs URLs to anonscm.debian.org
+  * Add sp to Build-Depends (Closes: #758318)
+
+ -- Ondřej Surý <ondrej@debian.org>  Mon, 18 Aug 2014 10:43:50 +0200
+
+bird (1.4.4-1) unstable; urgency=medium
+
+  * New upstream version 1.4.4
+   o Extended OSPF multipath support.
+   o Default router preference for RAdv.
+   o Significant changes in socket layer.
+   o Important bugfix in BGP.
+   o Several minor bugfixes.
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 10 Jul 2014 07:47:38 +0200
+
+bird (1.4.3-2) unstable; urgency=medium
+
+  * Add licensing of lib/heap.h to debian/copyright (Closes: #745745)
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 29 Apr 2014 13:09:53 +0200
+
+bird (1.4.3-1) unstable; urgency=low
+
+  * Change bird-doc dependency from Recommends to Suggests
+  * Bump policy version to 3.9.5 (no change)
+  * New upstream version 1.4.3
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 15 Apr 2014 08:05:35 +0200
+
+bird (1.4.2-1) unstable; urgency=medium
+
+  * New upstream version 1.4.2
+   o Important bugfix in BFD.  
+  * Build documentation and install it into bird-doc package (Closes: #664464)
+
+ -- Ondřej Surý <ondrej@debian.org>  Thu, 03 Apr 2014 08:40:29 +0200
+
+bird (1.4.1-1) unstable; urgency=high
+
+  * New upstream version 1.4.1
+   o BGP add-path support (RFC draft).
+   o BGP graceful restart (RFC 4724).
+   o OSPF: many changes in socket layer.
+   o OSPF: support for secondary addresses in BSD.
+   o OSPF: names for vlink pseudointerfaces (vlinkX).
+   o Several bugfixes.
+  * Fix new readline compatibility (Closes: #688385)
+  * Add manpage for bird (Closes: #579996)
+  * Build documentation and install it into bird-doc package (Closes: #664464)
+  * Add a uscan watch file
+
+ -- Ondřej Surý <ondrej@debian.org>  Tue, 01 Apr 2014 12:33:05 +0200
+
+bird (1.4.0-3) unstable; urgency=low
+
+  * Add 'exec' before bird execution in upstart jobs
+
+ -- Ondřej Surý <ondrej@debian.org>  Mon, 16 Dec 2013 13:00:01 +0100
+
+bird (1.4.0-2) unstable; urgency=low
+
+  * Enable default example router id because it's mandatory for IPv6
+
+ -- Ondřej Surý <ondrej@debian.org>  Mon, 16 Dec 2013 12:59:35 +0100
 
 bird (1.4.0-1) unstable; urgency=low
 
