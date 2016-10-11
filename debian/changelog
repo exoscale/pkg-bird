@@ -1,3 +1,9 @@
+bird (1.6.2-1~precise0+exo2) precise; urgency=medium
+
+  * Ensure that bird is restarted only after upgrade.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 11 Oct 2016 11:18:43 +0200
+
 bird (1.6.2-1~precise0+exo1) precise; urgency=medium
 
   * Backport to Precise.
