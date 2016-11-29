@@ -1,3 +1,9 @@
+bird (1.6.2-3~precise0+exo1) precise; urgency=medium
+
+  * Backport to Precise.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 29 Nov 2016 11:14:20 +0100
+
 bird (1.6.2-3) unstable; urgency=medium
 
   [ Ondrej Zajicek ]
@@ -54,7 +60,6 @@ bird (1.6.0-2) unstable; urgency=medium
     an automatic generated debug symbol package.
 
  -- Ondřej Surý <ondrej@debian.org>  Mon, 08 Aug 2016 11:02:37 +0200
->>>>>>> upstream/debian
 
 bird (1.6.0-1) unstable; urgency=medium
 
