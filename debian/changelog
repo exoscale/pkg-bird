@@ -1,3 +1,9 @@
+bird (1.6.2-3~xenial0+exo2) xenial; urgency=medium
+
+  * Make graceful restart work as expected.
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 03 Dec 2016 08:43:14 +0100
+
 bird (1.6.2-3~xenial0+exo1) xenial; urgency=medium
 
   * Backport to Xenial.
