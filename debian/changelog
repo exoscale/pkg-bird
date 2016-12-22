@@ -1,4 +1,4 @@
-bird (1.6.2-3~precise0+exo3) precise; urgency=medium
+bird (1.6.2-3~xenial0+exo3) xenial; urgency=medium
 
   * Make BIRD runs with nice level -10.
 
