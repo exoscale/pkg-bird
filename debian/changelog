@@ -1,3 +1,9 @@
+bird (1.6.2-3~precise0+exo3) precise; urgency=medium
+
+  * Make BIRD runs with nice level -10.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 22 Dec 2016 08:05:35 +0100
+
 bird (1.6.2-3~precise0+exo2) precise; urgency=medium
 
   * Make graceful restart work as expected.

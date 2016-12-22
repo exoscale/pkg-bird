@@ -8,6 +8,7 @@ stop on runlevel [016]
 
 respawn
 kill signal KILL
+nice -10
 pre-start script
 /usr/lib/bird/prepare-environment
 /usr/sbin/bird -p
