@@ -1,12 +1,24 @@
+bird (1.6.2-3~precise0+exo3) precise; urgency=medium
+
+  * Make BIRD runs with nice level -10.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 22 Dec 2016 08:05:35 +0100
+
 bird (1.6.2-3~xenial0+exo2) xenial; urgency=medium
 
   * Make graceful restart work as expected.
 
  -- Vincent Bernat <bernat@debian.org>  Sat, 03 Dec 2016 08:43:14 +0100
 
-bird (1.6.2-3~xenial0+exo1) xenial; urgency=medium
+bird (1.6.2-3~precise0+exo2) precise; urgency=medium
 
-  * Backport to Xenial.
+  * Make graceful restart work as expected.
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 03 Dec 2016 08:47:37 +0100
+
+bird (1.6.2-3~precise0+exo1) precise; urgency=medium
+
+  * Backport to Precise.
 
  -- Vincent Bernat <bernat@debian.org>  Tue, 29 Nov 2016 11:14:20 +0100
 
