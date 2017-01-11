@@ -1,3 +1,25 @@
+bird (1.6.3-1~precise0+exo2) precise; urgency=medium
+
+  * Set a negative OOM score to ensure BIRD doesn't get killed by OOM
+    before more obvious candidates.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 11 Jan 2017 15:04:39 +0100
+
+bird (1.6.3-1~precise0+exo1) precise; urgency=medium
+
+  * Backport to Precise.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 27 Dec 2016 18:25:20 +0100
+
+bird (1.6.3-1) unstable; urgency=medium
+
+  * Imported Upstream version 1.6.3
+  * Rebase patches on top of 1.6.3 release
+  * Add texlive-latex-extra to build-depends to add enumitem.sty to the
+    system
+
+ -- Ondřej Surý <ondrej@debian.org>  Fri, 23 Dec 2016 22:54:45 +0100
+
 bird (1.6.2-3~xenial0+exo3) xenial; urgency=medium
 
   * Make BIRD runs with nice level -10.

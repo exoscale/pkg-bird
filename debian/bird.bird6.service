@@ -11,6 +11,7 @@ ExecStart=/usr/sbin/bird6 -f -u $BIRD_RUN_USER -g $BIRD_RUN_GROUP $BIRD_ARGS
 Restart=on-abort
 KillSignal=SIGKILL
 Nice=-10
+OOMScoreAdjust=-200
 
 [Install]
 WantedBy=multi-user.target
