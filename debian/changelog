@@ -1,3 +1,9 @@
+bird (1.6.3-1~precise0+exo3) precise; urgency=medium
+
+  * Revert change for graceful restart (in 1.6.2-3~precise0+exo2).
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 12 Jan 2017 09:51:15 +0100
+
 bird (1.6.3-1~precise0+exo2) precise; urgency=medium
 
   * Set a negative OOM score to ensure BIRD doesn't get killed by OOM
