@@ -1,8 +1,8 @@
-bird (1.6.3-1~xenial0+exo2) precise; urgency=medium
+bird (1.6.3-1~xenial0+exo3) precise; urgency=medium
 
   * Forward-port to Xenial.
 
- -- Vincent Bernat <bernat@debian.org>  Thu, 12 Jan 2017 09:53:33 +0100
+ -- Vincent Bernat <bernat@debian.org>  Tue, 24 Jan 2017 15:13:39 +0100
 
 bird (1.6.3-1~precise0+exo3) precise; urgency=medium
 
