@@ -1,0 +1,29 @@
+From 25907d8d5200fc58b942aefd1e8ff1c427079e74 Mon Sep 17 00:00:00 2001
+From: Vincent Bernat <vincent@bernat.im>
+Date: Tue, 24 Jan 2017 14:49:15 +0100
+Subject: [PATCH] Fix filter comparison when using !~
+
+When BIRD compares a filter using the `!~`, we get:
+
+    Unknown instruction 8574 in same (~)
+
+This is due to the missing case for the `!~` operator. Add it.
+---
+ filter/filter.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/filter/filter.c b/filter/filter.c
+index 85a062586089..f18970e05939 100644
+--- a/filter/filter.c
++++ b/filter/filter.c
+@@ -1559,6 +1559,7 @@ i_same(struct f_inst *f1, struct f_inst *f2)
+   case P('<','='): TWOARGS; break;
+ 
+   case '!': ONEARG; break;
++  case P('!', '~'):
+   case '~': TWOARGS; break;
+   case P('d','e'): ONEARG; break;
+ 
+-- 
+2.11.0
+

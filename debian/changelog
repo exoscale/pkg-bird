@@ -1,3 +1,9 @@
+bird (1.6.3-1~precise0+exo4) precise; urgency=medium
+
+  * Fix crash when using the `!~` operator.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 24 Jan 2017 14:53:28 +0100
+
 bird (1.6.3-1~precise0+exo3) precise; urgency=medium
 
   * Revert change for graceful restart (in 1.6.2-3~precise0+exo2).
