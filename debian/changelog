@@ -1,4 +1,10 @@
-bird (1.6.3-1~xenial0+exo3) precise; urgency=medium
+bird (1.6.3-1~xenial0+exo4) xenial; urgency=medium
+
+  * Restart bird on any failure, not just on abort.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 02 May 2017 14:59:13 +0200
+
+bird (1.6.3-1~xenial0+exo3) xenial; urgency=medium
 
   * Forward-port to Xenial.
 
