@@ -1,3 +1,9 @@
+bird (1.6.3-1~xenial0+exo5) xenial; urgency=medium
+
+  * Add a patch to make BIRD more lenient about accepted routes.
+
+ -- Vincent Bernat <bernat@debian.org>  Fri, 23 Jun 2017 16:28:14 +0200
+
 bird (1.6.3-1~xenial0+exo4) xenial; urgency=medium
 
   * Restart bird on any failure, not just on abort.

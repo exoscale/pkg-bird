@@ -1,0 +1,34 @@
+From 466044ff68d878e4ba54be87b802f1b52ffc4532 Mon Sep 17 00:00:00 2001
+From: Vincent Bernat <vincent@bernat.im>
+Date: Fri, 23 Jun 2017 16:26:45 +0200
+Subject: [PATCH] Netlink: don't check for route validity
+
+Kernel is able to do far more extensive checks than us about the route
+validity. A valid route doesn't need to go through an interface with an
+IP address.
+---
+ sysdep/linux/netlink.c | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/sysdep/linux/netlink.c b/sysdep/linux/netlink.c
+index 22313f439977..1db12221dd79 100644
+--- a/sysdep/linux/netlink.c
++++ b/sysdep/linux/netlink.c
+@@ -1275,14 +1275,6 @@ nl_parse_route(struct nl_parse_state *s, struct nlmsghdr *h)
+ 	    return;
+ #endif
+ 
+-	  ng = neigh_find2(&p->p, &ra->gw, ra->iface,
+-			   (i->rtm_flags & RTNH_F_ONLINK) ? NEF_ONLINK : 0);
+-	  if (!ng || (ng->scope == SCOPE_HOST))
+-	    {
+-	      log(L_ERR "KRT: Received route %I/%d with strange next-hop %I",
+-		  net->n.prefix, net->n.pxlen, ra->gw);
+-	      return;
+-	    }
+ 	}
+       else
+ 	{
+-- 
+2.13.1
+
