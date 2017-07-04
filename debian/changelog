@@ -1,3 +1,10 @@
+bird (1.6.3-1~xenial0+exo7) xenial; urgency=medium
+
+  * Drop patch to propagate "onlink" flag. Not accepted upstream, we'll
+    use another way.
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 04 Jul 2017 16:50:08 +0200
+
 bird (1.6.3-1~xenial0+exo6) xenial; urgency=medium
 
   * Drop patch to let BIRD accept more routes.
