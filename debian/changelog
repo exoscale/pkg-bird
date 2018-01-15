@@ -1,3 +1,9 @@
+bird (1.6.3-1~xenial0+exo8) xenial; urgency=medium
+
+  * Make BIRD stop late.
+
+ -- Vincent Bernat <bernat@debian.org>  Mon, 15 Jan 2018 12:19:33 +0100
+
 bird (1.6.3-1~xenial0+exo7) xenial; urgency=medium
 
   * Drop patch to propagate "onlink" flag. Not accepted upstream, we'll

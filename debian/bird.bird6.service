@@ -1,6 +1,10 @@
 [Unit]
 Description=BIRD Internet Routing Daemon (IPv6)
-After=network.target
+After=networking.service
+Before=network.target network-online.target multi-user.target shutdown.target
+Conflicts=shutdown.target
+Wants=network.target
+DefaultDependencies=no
 
 [Service]
 EnvironmentFile=/etc/bird/envvars
