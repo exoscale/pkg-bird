@@ -1,3 +1,9 @@
+bird (1.6.3-1~xenial0+exo9) xenial; urgency=medium
+
+  * Ensure socket priority is correctly set for BFD.
+
+ -- Vincent Bernat <bernat@debian.org>  Mon, 22 Jan 2018 10:38:39 +0100
+
 bird (1.6.3-1~xenial0+exo8) xenial; urgency=medium
 
   * Make BIRD stop late.

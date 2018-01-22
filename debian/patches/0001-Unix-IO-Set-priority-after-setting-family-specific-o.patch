@@ -1,0 +1,42 @@
+From e44df48d2fb861c52024f88726d26c79beeda98d Mon Sep 17 00:00:00 2001
+From: Vincent Bernat <vincent@bernat.im>
+Date: Mon, 22 Jan 2018 10:36:19 +0100
+Subject: [PATCH] Unix IO: Set priority after setting family specific options
+
+On Linux, setting the ToS will also set the priority and the range of
+accepted values is quite limited (masked by 0x1e). Therefore, 0xc0 is
+translated to a priority of 0, not something we want. To avoid that,
+just move setting priority later in the code.
+---
+ sysdep/unix/io.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/sysdep/unix/io.c b/sysdep/unix/io.c
+index 8773f4c41e86..1c81acbf4518 100644
+--- a/sysdep/unix/io.c
++++ b/sysdep/unix/io.c
+@@ -1226,10 +1226,6 @@ sk_setup(sock *s)
+ #endif
+   }
+ 
+-  if (s->priority >= 0)
+-    if (sk_set_priority(s, s->priority) < 0)
+-      return -1;
+-
+   if (sk_is_ipv4(s))
+   {
+     if (s->flags & SKF_LADDR_RX)
+@@ -1280,6 +1276,10 @@ sk_setup(sock *s)
+ 	return -1;
+   }
+ 
++  if (s->priority >= 0)
++    if (sk_set_priority(s, s->priority) < 0)
++      return -1;
++
+   return 0;
+ }
+ 
+-- 
+2.15.1
+
