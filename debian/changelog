@@ -1,3 +1,9 @@
+bird (1.6.3-1~xenial0+exo10) xenial; urgency=medium
+
+  * Re-apply "onlink" patch.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 15 Feb 2018 13:54:05 +0100
+
 bird (1.6.3-1~xenial0+exo9) xenial; urgency=medium
 
   * Ensure socket priority is correctly set for BFD.
