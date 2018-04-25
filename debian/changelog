@@ -1,3 +1,9 @@
+bird (1.6.3-1~bionic0+exo10) bionic; urgency=medium
+
+  * Forward-port to Bionic.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 25 Apr 2018 09:54:37 +0200
+
 bird (1.6.3-1~xenial0+exo10) xenial; urgency=medium
 
   * Re-apply "onlink" patch.
