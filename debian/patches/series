@@ -5,3 +5,4 @@
 0001-Fix-filter-comparison-when-using.patch
 0001-Unix-IO-Set-priority-after-setting-family-specific-o.patch
 0001-Netlink-also-store-onlink-attribute.patch
+0001-KRT-Fix-IPv6-ECMP-handling-with-Linux-4.11.patch

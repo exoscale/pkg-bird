@@ -1,3 +1,9 @@
+bird (1.6.3-1~bionic0+exo11) bionic; urgency=medium
+
+  * Add patch for correct handling of IPv6 ECMP routes.
+
+ -- Vincent Bernat <bernat@debian.org>  Mon, 14 May 2018 13:36:45 +0200
+
 bird (1.6.3-1~bionic0+exo10) bionic; urgency=medium
 
   * Forward-port to Bionic.
